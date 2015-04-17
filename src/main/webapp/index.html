@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" data-ng-app="thymlarApp" data-ng-strict-di="">
+<head>
+    <base href="/"/>
+    <!--Useful to play with angular relative urls-->
+</head>
+<body>
+
+<p id="loadtime">Load time</p>
+
+<ul>
+    <li><a href="/1">See testimonials 1</a></li>
+    <li><a href="/2">See testimonials 2</a></li>
+</ul>
+
+<!--Do not forget to use th:include and not th:replace, otherwise angular loading system will be ignored-->
+<div th:include="partials/testimonials::testimonials(id = ${id})" data-ng-view=""></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular-route.js"></script>
+<script>
+    document.getElementById("loadtime").innerHTML = "Load time: " + new Date();
+
+    var thymlarApp = angular.module('thymlarApp', [
+        'ngRoute'
+    ]);
+    thymlarApp.config(['$routeProvider', '$locationProvider',
+        function($routeProvider, $locationProvider) {
+            $routeProvider.
+                    when('/:id', {
+                        templateUrl: function (params) { return 'partials/testimonials/'+params.id+10; }
+                    }).
+                    otherwise({
+                        redirectTo: '/1'
+                    });
+            $locationProvider.html5Mode(true);
+        }]);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,6 @@
+spring:
+  thymeleaf:
+    prefix: /
+    suffix: .html
+server:
+  port: 8899
