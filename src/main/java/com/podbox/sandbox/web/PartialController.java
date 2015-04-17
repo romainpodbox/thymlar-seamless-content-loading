@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
+ * Controller providing partial views through fragments.
+ * 
  * @since 16/04/15.
  */
 @Controller

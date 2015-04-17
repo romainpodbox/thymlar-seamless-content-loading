@@ -3,4 +3,4 @@ spring:
     prefix: /
     suffix: .html
 server:
-  port: 8899
+  port: 8080
