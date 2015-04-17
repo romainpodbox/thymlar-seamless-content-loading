@@ -13,12 +13,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("partials")
 public class PartialController {
 
-    @RequestMapping(method = RequestMethod.GET, value = "/testimonials/{id}")
+    @RequestMapping(method = RequestMethod.GET, value = "/testimonial/{id}")
     String testimonials(
             @PathVariable final String id,
             final Model model) {
 
         model.addAttribute("id", id);
-        return "partials/testimonials";
+        return "partials/testimonials::testimonials";
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "feature/{id}")
+    String feature(@PathVariable final String id, final Model model) {
+        model.addAttribute("id", id);
+        return "partials/features::features";
     }
 }

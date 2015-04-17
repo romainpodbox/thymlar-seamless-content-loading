@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Features</title>
+</head>
+
+<body>
+
+<div th:fragment="features (id)">
+    <h3 th:text="Feature +${id}"></h3>
+
+    <p th:text="ahaha +${id}"></p>
+</div>
+
+</body>
+
+</html>

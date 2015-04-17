@@ -9,8 +9,13 @@
 <body>
 
 <div th:fragment="testimonials (id)">
-    <h3 th:text="Hello +${id}"></h3>
-    <p th:text="${id}"></p>
+    <h3 th:text="Testimonial +${id}"></h3>
+
+    <div th:switch="${id}">
+        <p th:case="1">Un</p>
+        <p th:case="2">Deux</p>
+        <p th:case="*">Other</p>
+    </div>
 </div>
 
 </body>
