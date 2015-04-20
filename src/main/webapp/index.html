@@ -2,6 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org" data-ng-app="thymlarApp" data-ng-strict-di="">
 <head>
     <base href="/"/>
+
+   <!-- ui-router is not very well adapted to change meta desc since
+    it consider the view as a root, thus adding dom under the view tag
+    which produces an incorrect header-->
+    <!--<meta th:include="partials/meta::description(id=${id})" data-ui-view="metadesc" />-->
+    <meta th:replace="partials/meta::description(id=${id})" />
 </head>
 <body>
 
@@ -42,6 +48,11 @@
                             "features": {
                                 templateUrl: function($stateParams) {
                                     return "partials/feature/"+(($stateParams.id)? $stateParams.id:'1');
+                                }
+                            },
+                            "metadesc": {
+                                templateUrl: function($stateParams) {
+                                    return "partials/metadesc/"+(($stateParams.id)? $stateParams.id:'1');
                                 }
                             }
                         }

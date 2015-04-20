@@ -29,4 +29,10 @@ public class PartialController {
         model.addAttribute("id", id);
         return "partials/features::features";
     }
+
+    @RequestMapping(method = RequestMethod.GET, value="metadesc/{id}")
+    String metadesc(@PathVariable final String id, final Model model) {
+        model.addAttribute("id", id);
+        return "partials/meta::description";
+    }
 }
